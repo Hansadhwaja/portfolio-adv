@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, IBM_Plex_Sans, DM_Sans } from "next/font/google"
+import { Geist_Mono, IBM_Plex_Sans, DM_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -9,16 +9,19 @@ import Footer from "@/components/layout/Footer"
 const dmSansHeading = DM_Sans({
   subsets: ["latin"],
   variable: "--font-heading",
+  display: "swap",
 })
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+  display: "swap",
 })
 
 export default function RootLayout({
@@ -32,10 +35,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         "antialiased",
-        fontMono.variable,
-        "font-sans",
         ibmPlexSans.variable,
-        dmSansHeading.variable
+        dmSansHeading.variable,
+        fontMono.variable,
+        "font-sans"
       )}
     >
       <body>
