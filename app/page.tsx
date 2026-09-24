@@ -18,8 +18,8 @@ export default function Home() {
       <TechStack />
       <WhatIBuild />
       <Process />
-      <Highlights/>
-      <Contact/>
+      <Highlights />
+      <Contact />
     </main>
   )
 }

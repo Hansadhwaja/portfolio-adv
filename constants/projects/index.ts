@@ -1,6 +1,6 @@
-import ProjectCard from "./ProjectCard"
+import { Project } from "@/lib/types/project/project.types"
 
-const projects = [
+export const projects: Project[] = [
   {
     number: "01",
     label: "Business Management Platform",
@@ -23,9 +23,36 @@ const projects = [
       live: "https://store-pilot-dev.vercel.app",
       github: "",
     },
-    variant: "wide" as const,
-    preview: "storepilot" as const,
+    variant: "wide",
+    images: [
+      {
+        src: "/projects/storepilot/dashboard.png",
+        alt: "StorePilot business dashboard",
+        caption: "Business dashboard",
+      },
+      {
+        src: "/projects/storepilot/customers.png",
+        alt: "StorePilot customer management interface",
+        caption: "Customer management",
+      },
+      {
+        src: "/projects/storepilot/orders.png",
+        alt: "StorePilot orders management interface",
+        caption: "Orders & payments",
+      },
+      {
+        src: "/projects/storepilot/inventory.png",
+        alt: "StorePilot inventory management interface",
+        caption: "Inventory management",
+      },
+      {
+        src: "/projects/storepilot/dues.png",
+        alt: "StorePilot customer dues interface",
+        caption: "Outstanding dues",
+      },
+    ],
   },
+
   {
     number: "02",
     label: "Local Business Website",
@@ -48,10 +75,31 @@ const projects = [
       live: "https://shrikrishnapaints.vercel.app",
       github: "",
     },
-    variant: "default" as const,
     reverse: true,
-    preview: "paint-store" as const,
+    images: [
+      {
+        src: "/projects/shri-krishna-paints/home.png",
+        alt: "Shri Krishna Paints website homepage",
+        caption: "Homepage",
+      },
+      {
+        src: "/projects/shri-krishna-paints/products.png",
+        alt: "Shri Krishna Paints product showcase",
+        caption: "Product showcase",
+      },
+      {
+        src: "/projects/shri-krishna-paints/brands.png",
+        alt: "Shri Krishna Paints brands section",
+        caption: "Brands",
+      },
+      {
+        src: "/projects/shri-krishna-paints/contact.png",
+        alt: "Shri Krishna Paints contact and location section",
+        caption: "Contact & location",
+      },
+    ],
   },
+
   {
     number: "03",
     label: "Security Management Platform",
@@ -74,40 +122,27 @@ const projects = [
       live: "",
       github: "",
     },
-    variant: "default" as const,
-    preview: "vigilo" as const,
+    images: [
+      {
+        src: "/projects/vigilo/dashboard.png",
+        alt: "Vigilo security management dashboard",
+        caption: "Admin dashboard",
+      },
+      {
+        src: "/projects/vigilo/scheduling.png",
+        alt: "Vigilo scheduling interface",
+        caption: "Scheduling",
+      },
+      {
+        src: "/projects/vigilo/compliance.png",
+        alt: "Vigilo guard compliance interface",
+        caption: "Guard compliance",
+      },
+      {
+        src: "/projects/vigilo/assignments.png",
+        alt: "Vigilo shift assignment interface",
+        caption: "Shift assignments",
+      },
+    ],
   },
 ]
-
-export default function Projects() {
-  return (
-    <section
-      id="projects"
-      className="border-t border-border py-16 md:py-24 lg:py-32"
-    >
-      <div className="mx-auto max-w-[1200px] px-5 lg:px-10">
-        <div className="mb-12 max-w-3xl md:mb-16">
-          <div className="mb-4 font-mono text-xs font-medium tracking-[0.16em] text-muted-foreground uppercase">
-            01 / Selected projects
-          </div>
-
-          <h2 className="font-serif text-4xl leading-[1.05] font-normal tracking-tight md:text-6xl">
-            Products, not just{" "}
-            <em className="text-primary not-italic">repositories.</em>
-          </h2>
-
-          <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-            A selection of products and systems I have designed and built, from
-            business tools to production web applications.
-          </p>
-        </div>
-
-        <div className="space-y-8 md:space-y-12">
-          {projects.map((project) => (
-            <ProjectCard key={project.name} {...project} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
