@@ -1,19 +1,25 @@
-import { Button } from "@/components/ui/button"
+import About from "@/components/sections/About"
+import Contact from "@/components/sections/Contact"
+import Experience from "@/components/sections/Experience"
+import Hero from "@/components/sections/Hero"
+import Highlights from "@/components/sections/Highlights"
+import Process from "@/components/sections/Process"
+import Projects from "@/components/sections/Projects"
+import TechStack from "@/components/sections/TechStack"
+import WhatIBuild from "@/components/sections/WhatIBuild"
 
-export default function Page() {
+export default function Home() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
+    <main>
+      <Hero />
+      <Projects />
+      <About />
+      <Experience />
+      <TechStack />
+      <WhatIBuild />
+      <Process />
+      <Highlights/>
+      <Contact/>
+    </main>
   )
 }
