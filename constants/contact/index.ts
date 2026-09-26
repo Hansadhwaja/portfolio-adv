@@ -1,20 +1,21 @@
+import { siteConfig } from "@/config/site"
 import { Mail } from "lucide-react"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 
 export const links = [
   {
     label: "GitHub",
-    href: "https://github.com/yourusername",
+    href: siteConfig.links.github,
     icon: FaGithub,
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/yourusername",
+    href: siteConfig.links.linkedin,
     icon: FaLinkedinIn,
   },
   {
     label: "Email",
-    href: "mailto:your-email@example.com",
+    href: `mailto:${siteConfig.author.email}`,
     icon: Mail,
   },
 ]

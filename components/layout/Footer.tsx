@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 py-10 md:flex-row md:items-start md:justify-between md:py-12">
           {/* Brand */}
           <div className="max-w-xs">
-            <Link href="/" className="group inline-flex items-center gap-3">
+            <Link href="#home" className="group inline-flex items-center gap-3">
               <span className="flex size-9 items-center justify-center rounded-lg bg-foreground font-mono text-[11px] font-semibold tracking-tight text-background transition-transform duration-200 group-hover:scale-[1.03]">
                 HB
               </span>

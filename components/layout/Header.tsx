@@ -7,6 +7,7 @@ import MobileDrawer from "./MobileDrawer"
 import { navItems } from "@/constants"
 import { cn } from "cn"
 import { Button } from "../ui/button"
+import { siteConfig } from "@/config/site"
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -28,31 +29,40 @@ export default function Header() {
   useEffect(() => {
     const sections = navItems
       .map(({ href }) => document.querySelector(href))
-      .filter((section): section is Element => section !== null)
+      .filter((section): section is HTMLElement => section !== null)
 
     if (!sections.length) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+    const updateActiveSection = () => {
+      const activationPoint = window.innerHeight * 0.3
 
-        const section = visibleSections[0]
+      let currentSection = sections[0]
 
-        if (section) {
-          setActiveSection(section.target.id)
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect()
+
+        if (rect.top <= activationPoint) {
+          currentSection = section
+        } else {
+          break
         }
-      },
-      {
-        rootMargin: "-25% 0px -65% 0px",
-        threshold: [0.1, 0.25, 0.5, 0.75],
       }
-    )
 
-    sections.forEach((section) => observer.observe(section))
+      setActiveSection(currentSection.id)
+    }
 
-    return () => observer.disconnect()
+    updateActiveSection()
+
+    window.addEventListener("scroll", updateActiveSection, {
+      passive: true,
+    })
+
+    window.addEventListener("resize", updateActiveSection)
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection)
+      window.removeEventListener("resize", updateActiveSection)
+    }
   }, [])
 
   return (
@@ -118,7 +128,7 @@ export default function Header() {
           {/* Desktop Actions */}
           <div className="hidden items-center gap-1.5 lg:flex">
             <Link
-              href="https://github.com/"
+              href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -127,7 +137,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href="https://www.linkedin.com/"
+              href={siteConfig.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -136,7 +146,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href="#"
+              href={siteConfig.links.resume}
               className="ml-2 inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-3.5 text-[13px] font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
             >
               Resume

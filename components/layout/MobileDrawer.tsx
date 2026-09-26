@@ -9,6 +9,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer"
 import { navItems } from "@/constants"
+import { siteConfig } from "@/config/site"
 
 interface MobileDrawerProps {
   open: boolean
@@ -62,7 +63,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
 
             <div className="grid grid-cols-3 gap-2">
               <Link
-                href="https://github.com/"
+                href={siteConfig.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 items-center justify-center rounded-lg border border-border bg-card text-xs font-medium transition-colors hover:bg-muted"
@@ -71,7 +72,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               </Link>
 
               <Link
-                href="https://www.linkedin.com/"
+                href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-10 items-center justify-center rounded-lg border border-border bg-card text-xs font-medium transition-colors hover:bg-muted"
@@ -80,7 +81,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               </Link>
 
               <Link
-                href="#"
+                href={siteConfig.links.resume}
                 onClick={onClose}
                 className="inline-flex h-10 items-center justify-center gap-1 rounded-lg bg-primary text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >

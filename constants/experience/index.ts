@@ -2,7 +2,7 @@ import { Experience } from "@/lib/types/experience/experience.types"
 
 export const experiences: Experience[] = [
   {
-    period: "2026 — Present",
+    period: "Sep 2025 — Present",
     role: "Software Engineer",
     company: "Quantum IT Innovation",
     location: "Remote",
@@ -32,7 +32,7 @@ export const experiences: Experience[] = [
     current: false,
   },
   {
-    period: "2024",
+    period: "Jun 2024-Jul 2024",
     role: "Full Stack Web Development Trainee",
     company: "NullClass",
     location: "Remote",

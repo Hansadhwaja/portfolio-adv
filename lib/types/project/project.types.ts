@@ -14,10 +14,15 @@ export interface Project {
   features: string[]
   tags: string[]
   links: {
-    live: string
-    github: string
+    live?: string
+    github?: string
   }
   variant?: "default" | "wide"
   reverse?: boolean
   images: ProjectImage[]
+  context?: {
+    type: "professional" | "independent"
+    organization?: string
+    role?: string
+  }
 }

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { links } from "@/constants/contact"
+import { siteConfig } from "@/config/site"
 
 export default function Contact() {
   return (
@@ -30,7 +31,7 @@ export default function Contact() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="mailto:your-email@example.com"
+                href={`mailto:${siteConfig.author.email}`}
                 className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-background px-5 text-sm font-medium text-foreground transition-transform hover:-translate-y-0.5"
               >
                 Start a conversation
