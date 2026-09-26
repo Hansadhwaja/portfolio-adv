@@ -5,17 +5,17 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 export const links = [
   {
     label: "GitHub",
-    href: siteConfig.links.github,
+    href: siteConfig.social.github,
     icon: FaGithub,
   },
   {
     label: "LinkedIn",
-    href: siteConfig.links.linkedin,
+    href: siteConfig.social.linkedin,
     icon: FaLinkedinIn,
   },
   {
     label: "Email",
-    href: `mailto:${siteConfig.author.email}`,
+    href: `mailto:${siteConfig.contact.email}`,
     icon: Mail,
   },
 ]

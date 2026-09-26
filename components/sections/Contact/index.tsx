@@ -31,7 +31,7 @@ export default function Contact() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href={`mailto:${siteConfig.author.email}`}
+                href={`mailto:${siteConfig.contact.email}`}
                 className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-background px-5 text-sm font-medium text-foreground transition-transform hover:-translate-y-0.5"
               >
                 Start a conversation

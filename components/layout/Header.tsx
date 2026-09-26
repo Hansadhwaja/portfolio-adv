@@ -128,7 +128,7 @@ export default function Header() {
           {/* Desktop Actions */}
           <div className="hidden items-center gap-1.5 lg:flex">
             <Link
-              href={siteConfig.links.github}
+              href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -137,7 +137,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href={siteConfig.links.linkedin}
+              href={siteConfig.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -146,7 +146,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href={siteConfig.links.resume}
+              href={siteConfig.resume}
               className="ml-2 inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-3.5 text-[13px] font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
             >
               Resume
