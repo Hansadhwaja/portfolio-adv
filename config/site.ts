@@ -16,5 +16,5 @@ export const siteConfig = {
   },
 
   resume:
-    "https://drive.google.com/file/d/1BNJ_X-fM2K_ZtUbWGH3notuHppiAyA0t/view?usp=sharing",
+    "https://drive.google.com/file/d/1_m-wJY51GHiAWlR55NL8lDkEef2Udj9n/view?usp=sharing",
 } as const
