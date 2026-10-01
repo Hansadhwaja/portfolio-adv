@@ -1,6 +1,11 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowUp, ArrowUpRight } from "lucide-react"
+
 import { navItems } from "@/constants"
+import TrackedLink from "../analytics/TrackedLink"
+import { ANALYTICS_EVENTS } from "@/lib/analytics"
 
 export default function Footer() {
   return (
@@ -31,7 +36,10 @@ export default function Footer() {
               Navigate
             </span>
 
-            <nav className="grid grid-cols-2 gap-x-8 gap-y-2 sm:grid-cols-3 md:grid-cols-2">
+            <nav
+              className="grid grid-cols-2 gap-x-8 gap-y-2 sm:grid-cols-3 md:grid-cols-2"
+              aria-label="Footer navigation"
+            >
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -47,13 +55,17 @@ export default function Footer() {
           </div>
 
           {/* Back to top */}
-          <Link
+          <TrackedLink
             href="#home"
             aria-label="Back to top"
+            eventName={ANALYTICS_EVENTS.BACK_TO_TOP_CLICK}
+            eventParameters={{
+              location: "footer",
+            }}
             className="inline-flex size-10 items-center justify-center self-start rounded-lg border border-border bg-card text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary md:ml-auto"
           >
             <ArrowUp className="size-4" />
-          </Link>
+          </TrackedLink>
         </div>
 
         {/* Bottom */}

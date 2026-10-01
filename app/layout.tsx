@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import type { Metadata } from "next"
 import { siteConfig } from "@/config/site"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -112,6 +113,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   )
 }

@@ -3,11 +3,14 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight, Menu } from "lucide-react"
+
 import MobileDrawer from "./MobileDrawer"
 import { navItems } from "@/constants"
 import { cn } from "cn"
 import { Button } from "../ui/button"
 import { siteConfig } from "@/config/site"
+import TrackedLink from "../analytics/TrackedLink"
+import { ANALYTICS_EVENTS } from "@/lib/analytics"
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -127,31 +130,43 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden items-center gap-1.5 lg:flex">
-            <Link
+            <TrackedLink
               href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
+              eventName={ANALYTICS_EVENTS.GITHUB_CLICK}
+              eventParameters={{
+                location: "header",
+              }}
               className="rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               GitHub
-            </Link>
+            </TrackedLink>
 
-            <Link
+            <TrackedLink
               href={siteConfig.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              eventName={ANALYTICS_EVENTS.LINKEDIN_CLICK}
+              eventParameters={{
+                location: "header",
+              }}
               className="rounded-lg px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               LinkedIn
-            </Link>
+            </TrackedLink>
 
-            <Link
+            <TrackedLink
               href={siteConfig.resume}
+              eventName={ANALYTICS_EVENTS.RESUME_DOWNLOAD}
+              eventParameters={{
+                location: "header",
+              }}
               className="ml-2 inline-flex h-9 items-center gap-1.5 rounded-lg bg-primary px-3.5 text-[13px] font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
             >
               Resume
               <ArrowUpRight className="size-3.5" />
-            </Link>
+            </TrackedLink>
           </div>
 
           {/* Mobile Menu */}

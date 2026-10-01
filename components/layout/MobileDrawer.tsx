@@ -2,14 +2,18 @@
 
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
 } from "@/components/ui/drawer"
+
 import { navItems } from "@/constants"
 import { siteConfig } from "@/config/site"
+import TrackedLink from "../analytics/TrackedLink"
+import { ANALYTICS_EVENTS } from "@/lib/analytics"
 
 interface MobileDrawerProps {
   open: boolean
@@ -33,6 +37,7 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </DrawerTitle>
           </DrawerHeader>
 
+          {/* Navigation */}
           <nav className="px-5 pt-4" aria-label="Mobile navigation">
             {navItems.map((item, index) => (
               <Link
@@ -56,38 +61,54 @@ export default function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             ))}
           </nav>
 
+          {/* Connect */}
           <div className="px-5 pt-6 pb-8">
             <p className="mb-3 font-mono text-[10px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               Connect
             </p>
 
             <div className="grid grid-cols-3 gap-2">
-              <Link
+              {/* GitHub */}
+              <TrackedLink
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                eventName={ANALYTICS_EVENTS.GITHUB_CLICK}
+                eventParameters={{
+                  location: "mobile_menu",
+                }}
                 className="inline-flex h-10 items-center justify-center rounded-lg border border-border bg-card text-xs font-medium transition-colors hover:bg-muted"
               >
                 GitHub
-              </Link>
+              </TrackedLink>
 
-              <Link
+              {/* LinkedIn */}
+              <TrackedLink
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                eventName={ANALYTICS_EVENTS.LINKEDIN_CLICK}
+                eventParameters={{
+                  location: "mobile_menu",
+                }}
                 className="inline-flex h-10 items-center justify-center rounded-lg border border-border bg-card text-xs font-medium transition-colors hover:bg-muted"
               >
                 LinkedIn
-              </Link>
+              </TrackedLink>
 
-              <Link
+              {/* Resume */}
+              <TrackedLink
                 href={siteConfig.resume}
                 onClick={onClose}
+                eventName={ANALYTICS_EVENTS.RESUME_DOWNLOAD}
+                eventParameters={{
+                  location: "mobile_menu",
+                }}
                 className="inline-flex h-10 items-center justify-center gap-1 rounded-lg bg-primary text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
                 Resume
                 <ArrowUpRight className="size-3.5" />
-              </Link>
+              </TrackedLink>
             </div>
           </div>
         </div>
